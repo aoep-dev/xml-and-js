@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE businessCards [
+    <!ELEMENT businessCards (businessCard+)>
+    <!ELEMENT businessCard (name+, phone+, email?)>
+    <!ATTLIST phone type CDATA #REQUIRED>
+    <!ATTLIST phone countryCode CDATA "+1">
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+]>
+<businessCards>
+
+    <businessCard>
+        <name>Rorie Demanche</name>
+        <phone type="home" countryCode="+1">7101534949</phone>
+        <phone type="work" countryCode="+1">5033193558</phone>
+        <phone type="mobile" countryCode="+1">1827481667</phone>
+        <email>rdemanche0@foxnews.com</email>
+    </businessCard>
+
+    <businessCard>
+        <name>Kelcey Surman</name>
+        <phone type="home" countryCode="+1">2499267376</phone>
+        <phone type="work" countryCode="+1">2083636588</phone>
+        <phone type="mobile" countryCode="+1">9825366860</phone>
+        <email>ksurman1@usnews.com</email>
+    </businessCard>
+
+    <businessCard>
+        <name>Simon Heddan</name>
+        <phone type="home" countryCode="+1">6878084290</phone>
+        <phone type="work" countryCode="+1">6048157810</phone>
+        <phone type="mobile" countryCode="+1">9241743271</phone>
+        <email>sheddan2@alexa.com</email>
+    </businessCard>
+
+    <businessCard>
+        <name>Kelcey Surman</name>
+        <phone type="home" countryCode="+1">5771652495</phone>
+        <phone type="work" countryCode="+1">5479347337</phone>
+        <phone type="mobile" countryCode="+1">3676670747</phone>
+        <email>csupple3@123-reg.co.uk</email>
+    </businessCard>
+    
+</businessCards>
