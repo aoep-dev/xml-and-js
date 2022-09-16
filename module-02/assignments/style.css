@@ -1,0 +1,28 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+}
+
+title {
+    font-size: 3em;
+    text-align: center;
+}
+
+category {
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+originalName {
+    font-size: 2em;
+}
+
+description {
+    font-style: italic;
+}
+
+price {
+    font-weight: 700;
+}
