@@ -4,4 +4,4 @@
 2. Validate it using [https://www.freeformatter.com/xml-validator-xsd.html](https://www.freeformatter.com/xml-validator-xsd.html) and take a screenshot of validation results
 
 ## Validation Result
-![image info]()
+![image info](../assets/activity-2-validation.jpg)
