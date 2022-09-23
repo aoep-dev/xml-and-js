@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE catalog 
+[
+  <!ELEMENT catalog (product+)>
+  <!ELEMENT product (catalog_item+)>
+  <!ATTLIST product product_id ID #REQUIRED>
+  <!ATTLIST product description CDATA #REQUIRED>
+  <!ATTLIST product product_image CDATA "">
+  <!ELEMENT catalog_item (item_number, price, size+)>
+  <!ATTLIST catalog_item gender CDATA #REQUIRED>
+  <!ELEMENT item_number (#PCDATA)>
+  <!ELEMENT price (#PCDATA)>
+  <!ELEMENT size (color_swatch+)>
+  <!ATTLIST size description CDATA #REQUIRED >
+  <!ELEMENT color_swatch (#PCDATA)>
+  <!ATTLIST color_swatch image CDATA "">
+
+]>
+
 <catalog>
   <product product_id="e4892f6a-7cce-11ec-90d6-0242ac120003" description="Cardigan Sweater" product_image="cardigan.jpg">
     <catalog_item gender="Men">
