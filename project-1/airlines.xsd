@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="airlines">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="carrier" type="carrierType" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+        
+    <xs:complexType name="carrierType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="address" type="addressType"/>
+            <xs:element name="parks" type="parksType"/>
+            <xs:element name="routes" type="routesType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="addressType">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="region" type="xs:string" />
+            <xs:element name="country" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="parksType">
+        <xs:sequence>
+            <xs:element name="park" type="parkType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="parkType">
+        <xs:sequence>
+            <xs:element name="manufacturer" type="xs:string" />
+            <xs:element name="year" type="xs:positiveInteger" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="routeType" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="routesType">
+        <xs:sequence>
+            <xs:element name="route" type="routeType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="routeType">
+        <xs:sequence>
+            <xs:element name="departure" type="departureType" />
+            <xs:element name="destination" type="destinationType" />
+        </xs:sequence>
+        <xs:attribute name="vehicle" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="departureType">
+        <xs:sequence>
+            <xs:element name="airport" type="xs:string" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="region" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="country" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="destinationType">
+        <xs:sequence>
+            <xs:element name="airport" type="xs:string" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="region" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="country" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airlines</title>
+    <style>
+        html {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        
+        #container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .carrier {
+            border-radius: 16px;
+            background-color: lightgray;
+            padding: 15px;
+            margin: 5px 0;
+        }
+        
+        .carrier p:first-child {
+            text-align: right;
+        }
+
+        .route, .parks {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- body content -->
+    <h1>Airlines</h1>
+    <div id="container"></div>
+
+    <!-- JS script -->
+    <script>
+        const xhttp = new XMLHttpRequest()
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status ===200) {
+                displayData(this.responseXML);              
+            }
+        }
+
+        xhttp.open('GET', 'airlines.xml', true)
+        xhttp.send()
+
+        function displayData(xmlDoc){
+            // targets various xml element and the main html tag
+            const container = document.getElementById('container');
+            const carriers = xmlDoc.getElementsByTagName('carrier');
+            const addressesNode = xmlDoc.getElementsByTagName('address');
+            const parksNode = xmlDoc.getElementsByTagName('parks');
+            const routesNode = xmlDoc.getElementsByTagName('routes');
+
+            // Iterates over each carrier in teh carriers(root) element
+            for (let i = 0; i < carriers.length; i++) {
+                //  targets various elements in the carrier
+                const carrier = carriers[i];
+                const addressNode = addressesNode[i];
+                const parkNode = parksNode[i].getElementsByTagName('park');
+                const routeNode = routesNode[i].getElementsByTagName('route');
+
+                // gets the content of the targeted elements and stores them to a variable as string
+                const id = carrier.getAttribute('id');
+
+                const nameString = carrier.getElementsByTagName('name')[0].childNodes[0].nodeValue;
+
+                const addressString = `${addressNode.getElementsByTagName('street')[0].childNodes[0].nodeValue}, ${
+                    addressNode.getElementsByTagName('city')[0].childNodes[0].nodeValue}, ${
+                    addressNode.getElementsByTagName('region')[0].childNodes[0].nodeValue}, ${
+                    addressNode.getElementsByTagName('country')[0].childNodes[0].nodeValue}`;
+
+                let parkString = ''; // will house the park elements content
+
+                let routeString = ''; // will house the route elements content
+
+                // iterate over parks for the selected carrier
+                for (let j = 0; j < parkNode.length; j++) {
+                    const park =  parkNode[j]
+
+                    parkString += `${park.getElementsByTagName('manufacturer')[0].childNodes[0].nodeValue} (${
+                        park.getElementsByTagName('year')[0].childNodes[0].nodeValue})`
+                    if (j != parkNode.length - 1) {
+                        parkString += ', '
+                    }
+                } //end of park's for loop
+
+                // iterate over routes for the selected carrier
+                for (let j = 0; j < routeNode.length; j++) {
+                    const route =  routeNode[j];
+                    const departure = routeNode[j].getElementsByTagName('departure')[0]
+                    const destination = routeNode[j].getElementsByTagName('destination')[0]
+
+                    // add content for departure, including vehicle id
+                    routeString += `<strong>${route.getAttribute('vehicle')}(Vehicle ID):</strong><br>${
+                        departure.getElementsByTagName('airport')[0].childNodes[0].nodeValue} - ${
+                        departure.getElementsByTagName('city')[0].childNodes[0].nodeValue}, ${
+                        departure.getElementsByTagName('country')[0].childNodes[0].nodeValue} >>> `;
+
+                    // add content for destination
+                    routeString += `${destination.getElementsByTagName('airport')[0].childNodes[0].nodeValue} - ${
+                        destination.getElementsByTagName('city')[0].childNodes[0].nodeValue}, ${
+                        destination.getElementsByTagName('country')[0].childNodes[0].nodeValue} <br>`;
+                    
+                } //end of route's for loop
+
+                // compile various element(xml) strings and form the main structure of the html, all stored in a variable as a string
+                const outputString = `<div class="carrier">
+                                        <p>${id}</p>
+                                        <h2>${nameString}</h2>
+                                        <p>${addressString}</p>
+                                        <p class="parks">Parks:<br/>${parkString}</p>
+                                        <p class="route">Routes:<br/>${routeString}</p>
+                                    </div><br/>`
+                
+                // each carrier element output string is placed in a 
+                const pElement = document.createElement('p')
+                pElement.innerHTML = outputString
+                container.appendChild(pElement.firstChild)
+
+            } // end of carrier's for loop
+        }
+    </script>
+</body>
+</html>
