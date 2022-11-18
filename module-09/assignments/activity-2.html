@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Module 5 Activity</title>
+    </head>
+    <body>
+        <h2>Records</h2>
+        <table id="people" border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>IPaddress</th>
+            </tr>
+        </table>
+        
+        <script>
+            function stringToNode(html) {
+                const template = document.createElement(`template`);
+                html = html.trim();
+                template.innerHTML = html;
+                return template.content.firstChild;
+            }
+
+            function displayData(xmlDoc){
+                const listElement = document.getElementById(`people`);
+                const peopleNode = xmlDoc.getElementsByTagName(`person`);
+
+                for (let index = 0; index < peopleNode.length; index++) {
+                const personNode = peopleNode[index];
+
+                const listItem = stringToNode(
+                `<tr>
+                    <td>
+                    ${
+                    personNode.getAttribute(`ID`)
+                    }</td>
+                    <td>
+                    ${
+                    personNode.getElementsByTagName(`first_name`)[0].childNodes[0].nodeValue
+                    } ${
+                    personNode.getElementsByTagName(`last_name`)[0].childNodes[0].nodeValue
+                    }</td>
+                    <td>
+                    ${
+                        personNode.getElementsByTagName(`gender`)[0].childNodes[0].nodeValue
+                    }</td>
+                    <td>
+                    ${
+                        personNode.getElementsByTagName(`email`)[0].childNodes[0].nodeValue
+                    }</td>
+                    <td>
+                    ${
+                        personNode.getElementsByTagName(`ip_address`)[0].childNodes[0].nodeValue
+                    }
+                    </td>
+                </tr>`);
+                listElement.appendChild(listItem);
+                }
+            }
+
+            fetch("people.xml")
+                .then((response) => response.text())
+                .then((str) => new DOMParser().parseFromString(str, "text/xml"))
+                .then((data) => displayData(data));
+        </script>       
+    </body>
+</html>
