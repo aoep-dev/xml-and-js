@@ -1,0 +1,23 @@
+.genre-card {
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  background-color: #1aa83b;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.genre-card > div {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 5px 20px;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
