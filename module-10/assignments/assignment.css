@@ -1,42 +1,27 @@
 .genre-card {
-  max-width: 100%;
-  overflow: hidden;
-  display: flex;
-  background-color: #1aa83b;
-  color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    background-color: #1aa83b;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .genre-card > div {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 5px 20px;
-}
-
-.genre-card ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-radius: 16px;
-  display: flex;
-  overflow: hidden;
-}
-
-.genre-card li{
-  border-radius: 16px;
-  padding: 5px;
-
-}
-
-/* .playlist-card {
     display: flex;
     flex-direction: column;
-} */
+    overflow: hidden;
+    max-width: min-content;
+    padding: 5px 20px;
+}
 
-.playlist-card ol {
+.genre-card #pList {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    list-style-type: decimal;
-    font-size: 8px;
+    padding: 5px;
+}
+
+.tracks {
+    list-style: decimal;
+    font-size: 10px;
 }
