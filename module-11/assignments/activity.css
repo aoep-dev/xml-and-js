@@ -1,0 +1,55 @@
+html{
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    float: left;
+    color: #1aa83b;
+    padding-left: 25px;
+}
+
+form {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    border: 2px green solid;
+    border-radius: 12px;
+    padding: 8px;
+   
+}
+
+
+
+#genres {
+    margin: 20px;
+    padding: 20px;
+    background-color: #1aa83b;
+}
+
+.genre-card {
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    color: white;
+}
+
+.genre-card > div {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: min-content;
+    padding: 5px 20px;
+}
+
+.genre-card #pList {
+    list-style: none;
+    display: flex;
+    padding: 5px;
+}
+
+.tracks {
+    list-style: decimal;
+    font-size: 10px;
+}
