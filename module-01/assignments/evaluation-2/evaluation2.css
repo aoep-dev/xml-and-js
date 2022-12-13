@@ -1,0 +1,10 @@
+body {
+    width: 40%;
+    margin: 0 auto;
+}
+
+form {
+    border: solid 3px black;
+    padding: 1em;
+    background-color: antiquewhite;
+}

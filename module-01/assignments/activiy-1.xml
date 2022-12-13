@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<introductions>
+    <person>
+        <name>
+            <firstname>Alfred</firstname>
+            <lastname>Emasoga Padilla</lastname>
+        </name>
+        <about>People are obsessed with space but if we all look down, we could see the beautiful planet we have.
+        It is beautiful as it is diverse. I love to travel and would love to see all there is to see. 
+        </about>
+    </person>
+
+    <person>
+        <name>
+            <firstname></firstname>
+            <lastname></lastname>
+        </name>
+        <about></about>
+    </person>
+
+<!--        .
+            .
+            .  
+-->
+    <!-- 10th person -->
+    <person>
+        <name>
+            <firstname></firstname>
+            <lastname></lastname>
+        </name>
+        <about></about>
+    </person>
+
+</introductions>
+
+<!-- For multiple entries with up to 10 people, it is best to have a common tag representing the induvidudal
+    as well as common child elements.-->
