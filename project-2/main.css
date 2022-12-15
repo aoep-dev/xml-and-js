@@ -1,0 +1,102 @@
+/* Background picture: https://www.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_8562848.htm */
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #333;
+	background-image: url(./assets/background-1.webp);
+	background-size: auto;
+}
+
+#container {
+  width: 60%;
+	min-height: 95vh;
+	margin: 0 auto;
+	background-color: #333;
+	padding: 5em;
+	padding-top: 0em;
+}
+
+h1 {
+	text-align: center;
+	color: rgb(40, 200, 230);
+	font-family: calibri;
+	padding-top: 15px;
+	font-size: 3em;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+	padding: 3px;
+	color: rgb(255, 255, 255);
+}
+
+form select {
+  width: 100%;
+  padding: 5px;
+  border: 2px solid rgb(40, 200, 230);
+	border-radius: 4px;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: 1px solid rgb(40, 200, 230);
+  background-color: rgb(40, 200, 230);
+	border-radius: 4px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+/* 
+form p {
+  color: red;
+} */
+
+/* form input[type="submit"],
+form input[type="reset"] {
+  border: 1px solid rgb(0, 0, 0);
+} */
+
+.card {
+  width: 50%;
+	min-width: fit-content;
+	max-width: fit-content;
+  padding: 20px;
+  margin: 1em auto;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.card-header {
+	font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+th, td {
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+}
+
+ul {
+	padding-right: 4em;
+}
+li {
+	max-width: 12em;
+	margin: 0 auto;
+	list-style-type: none;
+	padding: 0.5em;
+	border-top: 1px solid rgb(40, 200, 230);
+}
+
+li:last-child{
+	border-bottom: 1px solid rgb(40, 200, 230);
+}
